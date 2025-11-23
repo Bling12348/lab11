@@ -2,15 +2,16 @@ import pytest
 from presidio_anonymizer.operators import Initial
 
 def test_correct_name():
-    """Check that the operator_name() returns 'initial'."""
     assert Initial().operator_name() == "initial"
 
-@pytest.mark.parametrize(
-    "input_text, initials",
-    [
-        ("John Smith", "J. S."),
-    ],
-)
-def test_given_value_for_initial(input_text, initials):
-    text = Initial().operate(input_text) == initials
-    assert text == initials
+def test_initials_basic():
+    assert Initial().operate("John Smith") == "J. S."
+    assert Initial().operate("john smith") == "J. S."
+
+def test_initials_extra_whitespace():
+    text = "     Eastern    Michigan   University "
+    assert Initial().operate(text) == "E. M. U."
+
+def test_initials_special_char():
+    text = " @abc "
+    assert Initial().operate(text) == "@A."
