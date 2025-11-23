@@ -15,3 +15,9 @@ def test_initials_extra_whitespace():
 def test_initials_special_char():
     text = " @abc "
     assert Initial().operate(text) == "@A."
+    
+def test_initials_with_leading_symbols():
+    assert Initial().operate("@abc") == "@A."
+    assert Initial().operate("@843A") == "@8."
+    assert Initial().operate("--**abc") == "--**A."
+
