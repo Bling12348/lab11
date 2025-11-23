@@ -13,16 +13,23 @@ From the <module> sample.py (line 35),
 to the main method in sample.py (line 29), 
 to the run_anonymizer method in the sample.py (line 13)
 to the anonymize method in AnonymizerEngine Class (line 104)
-[complete the call stack here]
+to __init__ method in recognizer_result.py (line 29)
+to __init__ method in pii_entity.py (line 18)
+to __validate_fields in pii_entity.py (line 44)
+to validate_parameter_exists in validators.py (line 34)
+to validate_type in validators.py (line 58)
+to __validate_fields in pii_entity.py (line 43)
+to validate_parameter_exists in validators.py (line 34)
+to validate_parameter_not_empty in validators.py (line 24)
 ```
-
 * How many if/elif branches are used in selecting the operator?
-*Put your answer here*
+  The factory uses one main if/else branch when selecting the operator.
 
 * What data structure (a Python data type) exactly is used to select the operator?
-*Put your answer here*
+  Operators are stored in a Python dictionary.
 
 * Explain how "Strategy" design pattern is reflected here.
+Stategy design pattern is reflected here as the code can select and execute a specific operator at runtime without knowing its implementation.
 
 
 ---
